@@ -1,0 +1,26 @@
+.navbar-container {
+  width: 100%;
+}
+
+.navbar {
+  width: 100%;
+}
+
+.navbar-list {
+  display: flex;
+  list-style: none;
+}
+
+.navbar-item {
+  margin: 0 10px;
+}
+
+.navbar-item > a {
+  color: black;
+  display: block;
+  font-size: 1.1em;
+  padding: 20px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
