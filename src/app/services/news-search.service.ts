@@ -10,8 +10,8 @@ export class NewsSearchService {
 
   constructor(private http: Http) { }
 
-  getAllNews() {
-    this.searchUrl = "https://newsapi.org/v1/sources?language=en&apiKey=c6263712cdd64ccaa20eb12746df0b3d"
+  getAllNews(source) {
+    this.searchUrl = "https://newsapi.org/v1/articles?source="+source+"&apiKey=c6263712cdd64ccaa20eb12746df0b3d"
     return this.http.get(this.searchUrl)
     .map(res => res.json())
   }

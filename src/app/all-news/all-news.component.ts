@@ -11,14 +11,18 @@ export class AllNewsComponent implements OnInit {
 
   constructor(private newsSearchService: NewsSearchService) { }
 
-  articles: Articles[];
+  articles: Articles[] = [];
+  sources = ["associated-press", "bbc-news", "bbc-sport", "bloomberg", "business-insider-uk", "buzzfeed", "daily-mail", "engadget", "financial-times", "google-news", "hacker-news", "ign", "independent", "mashable", "metro", "mirror", "national-geographic"]
 
   ngOnInit() {
-    this.newsSearchService.getAllNews()
-    .subscribe(news => {
-      console.log(news)
-      this.articles = news.results;
-    })
+    for( let i = 0; i < this.sources.length; i++ ) {
+      this.newsSearchService.getAllNews(this.sources[i]) // loop through sources to generate http requests for each source to the api
+      .subscribe(news => {
+        for (let i = 0; i < news.articles.length; i++) { // loop through the array of articles presented by each source and push them to the articles for interpolation
+            this.articles.push(news.articles[i]);
+        }
+        console.log(this.articles)
+      })
+    }
   }
-
 }
