@@ -9,49 +9,28 @@ import { Articles } from "../models/articles"
 })
 export class BusinessNewsComponent implements OnInit {
 
-  businessArticles = [];
-  sources = ["associated-press", "bbc-news", "bbc-sport", "bloomberg", "business-insider-uk", "buzzfeed", "daily-mail", "engadget", "financial-times", "google-news", "hacker-news", "ign", "independent", "mashable", "metro", "mirror", "national-geographic"]
+  news = [];
+  sources = ["bloomberg", "business-insider-uk", "financial-times", "reuters", "the-economist"]
 
-  constructor(private newsSearchService: NewsSearchService) {
+  constructor(private newsSearchService: NewsSearchService) { }
 
-  }
+    ngOnInit() {
 
-  ngOnInit() {
-    this.businessArticles = []
-      this.newsSearchService.getNews(this.sources[0]) // loop through sources to generate http requests for each source to the api
-      .subscribe(news => {
-        this.businessArticles.push(news.articles);
-        console.log(this.businessArticles)
-      })
-      this.newsSearchService.getNews(this.sources[1]) // loop through sources to generate http requests for each source to the api
-      .subscribe(news => {
-        this.businessArticles.push(news.articles);
-        console.log(this.businessArticles)
-      })
-      this.newsSearchService.getNews(this.sources[2]) // loop through sources to generate http requests for each source to the api
-      .subscribe(news => {
-        this.businessArticles.push(news.articles);
-        console.log(this.businessArticles)
-      })
-      this.newsSearchService.getNews(this.sources[3]) // loop through sources to generate http requests for each source to the api
-      .subscribe(news => {
-        this.businessArticles.push(news.articles);
-        console.log(this.businessArticles)
-      })
-      this.newsSearchService.getNews(this.sources[4]) // loop through sources to generate http requests for each source to the api
-      .subscribe(news => {
-        this.businessArticles.push(news.articles);
-        console.log(this.businessArticles)
-      })
-      this.newsSearchService.getNews(this.sources[5]) // loop through sources to generate http requests for each source to the api
-      .subscribe(news => {
-        this.businessArticles.push(news.articles);
-        console.log(this.businessArticles)
-      })
-      this.newsSearchService.getNews(this.sources[6]) // loop through sources to generate http requests for each source to the api
-      .subscribe(news => {
-        this.businessArticles.push(news.articles);
-        console.log(this.businessArticles)
-      })
+      this.getNews(this.sources[0])
+      this.getNews(this.sources[1])
+      this.getNews(this.sources[2])
+      this.getNews(this.sources[3])
+      this.getNews(this.sources[4])
+      this.getNews(this.sources[5])
+      this.getNews(this.sources[6])
+
     }
+
+  getNews(source) {
+    this.newsSearchService.getNews(source) // loop through sources to generate http requests for each source to the api
+    .subscribe(news => {
+      this.news.push(news);
+      console.log(news.articles)
+    })
   }
+}

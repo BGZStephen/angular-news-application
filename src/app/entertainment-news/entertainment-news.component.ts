@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsSearchService } from "../services/news-search.service"
+import { Articles } from "../models/articles"
 
 @Component({
   selector: 'app-entertainment-news',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntertainmentNewsComponent implements OnInit {
 
-  constructor() { }
+  sources = ["entertainment-weekly", "time", "mtv-news-uk"]
+  news = []
 
-  ngOnInit() {
+  constructor(private newsSearchService: NewsSearchService) { }
+
+    ngOnInit() {
+
+      this.getNews(this.sources[0])
+      this.getNews(this.sources[1])
+      this.getNews(this.sources[2])
+    }
+
+  getNews(source) {
+    this.newsSearchService.getNews(source) // loop through sources to generate http requests for each source to the api
+    .subscribe(news => {
+      this.news.push(news);
+      console.log(news.articles)
+    })
   }
-
 }
