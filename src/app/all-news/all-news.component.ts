@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsSearchService } from "../services/news-search.service"
+import { Articles } from "../models/articles"
 
 @Component({
   selector: 'app-all-news',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllNewsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private newsSearchService: NewsSearchService) { }
+
+  articles: Articles[];
 
   ngOnInit() {
+    this.newsSearchService.getAllNews()
+    .subscribe(news => {
+      console.log(news)
+      this.articles = news.results;
+    })
   }
 
 }

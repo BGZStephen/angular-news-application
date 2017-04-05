@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { router } from "./app.routes";
+import { NewsSearchService } from "./services/news-search.service"
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -30,7 +31,7 @@ import { MainstreamNewsComponent } from './mainstream-news/mainstream-news.compo
     HttpModule,
     router
   ],
-  providers: [],
+  providers: [NewsSearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
