@@ -1,12 +1,14 @@
-<div class="all-news-container">
-<div class="all-news-item" *ngFor="let article of articles">
-  <div class="news-item-heading">
-    <h2>{{article.title}}</h2>
+<div class="all-news-container" *ngIf="articles">
+<div class="all-news-item" *ngFor="let article of articles; let i = index">
+  <div *ngFor="let story of article">
+    <div class="news-item-heading">
+      <h2>{{story.title}}</h2>
+    </div>
+    <div class="news-item-image">
+      <img src="{{story.urlToImage}}">
+    </div>
+    <div class="news-item-description">
+      <p>{{story.description | charlimit}}</p>
+    </div>
   </div>
-  <div class="news-item-image">
-    <img src="{{article.urlToImage}}">
-  </div>
-  <div class="news-item-description">
-    <p>{{article.description}}</p>
-  </div> 
 </div>
