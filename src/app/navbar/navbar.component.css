@@ -51,6 +51,7 @@ app-navbar {
 
   .navbar-list {
     justify-content: flex-start;
+    padding: 0 0 0 30px;
   }
 
   .navbar-item {

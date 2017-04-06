@@ -3,10 +3,10 @@
     <h3>{{articles.source}}</h3>
     <div class="news-item" *ngFor="let story of articles.articles">
       <div class="news-item-heading">
-        <h2>{{story.title}}</h2>
+        <h2><a href="{{story.url}}">{{story.title}}</a></h2>
       </div>
       <div class="news-item-image">
-        <img src="{{story.urlToImage}}">
+        <a href="{{story.url}}"><img src="{{story.urlToImage}}"></a>
       </div>
       <div class="news-item-description">
         <p>{{story.description | charlimit}}</p>
