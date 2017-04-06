@@ -9,8 +9,8 @@ import { Articles } from "../models/articles"
 })
 export class SportNewsComponent implements OnInit {
 
-  sources = ["bbc-sport", "football-italia", "nfl-news", "sky-sports-news", "the-sport-bible"]
-  news = []
+  private sources = ["bbc-sport", "football-italia", "nfl-news", "sky-sports-news", "the-sport-bible"]
+  private news = []
 
   constructor(private newsSearchService: NewsSearchService) { }
 

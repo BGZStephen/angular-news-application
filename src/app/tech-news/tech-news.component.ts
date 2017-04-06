@@ -9,21 +9,19 @@ import { Articles } from "../models/articles"
 })
 export class TechNewsComponent implements OnInit {
 
-  sources = ["buzzfeed", "engadget", "hacker-news","mashable", "recode", "techcrunch", "techradar"]
-  news = []
+  private news = []
+  private sources = ["buzzfeed", "engadget", "mashable", "recode", "techcrunch", "techradar"]
 
-  constructor(private newsSearchService: NewsSearchService) { }
+  constructor(private newsSearchService: NewsSearchService) {
+    this.getNews(this.sources[0])
+    this.getNews(this.sources[1])
+    this.getNews(this.sources[2])
+    this.getNews(this.sources[3])
+    this.getNews(this.sources[4])
+    this.getNews(this.sources[5])
+  }
 
     ngOnInit() {
-
-      this.getNews(this.sources[0])
-      this.getNews(this.sources[1])
-      this.getNews(this.sources[2])
-      this.getNews(this.sources[3])
-      this.getNews(this.sources[4])
-      this.getNews(this.sources[5])
-      this.getNews(this.sources[6])
-
     }
 
   getNews(source) {

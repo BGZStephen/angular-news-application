@@ -9,13 +9,12 @@ import { Articles } from "../models/articles"
 })
 export class EntertainmentNewsComponent implements OnInit {
 
-  sources = ["entertainment-weekly", "time", "mtv-news-uk"]
-  news = []
+  private sources = ["entertainment-weekly", "time", "mtv-news-uk"]
+  private news = []
 
   constructor(private newsSearchService: NewsSearchService) { }
 
     ngOnInit() {
-
       this.getNews(this.sources[0])
       this.getNews(this.sources[1])
       this.getNews(this.sources[2])

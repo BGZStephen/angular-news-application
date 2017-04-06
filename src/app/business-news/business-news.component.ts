@@ -9,8 +9,8 @@ import { Articles } from "../models/articles"
 })
 export class BusinessNewsComponent implements OnInit {
 
-  news = [];
-  sources = ["bloomberg", "business-insider-uk", "financial-times", "reuters", "the-economist"]
+  private news = [];
+  private sources = ["bloomberg", "business-insider-uk", "financial-times", "reuters", "the-economist"]
 
   constructor(private newsSearchService: NewsSearchService) { }
 
@@ -21,9 +21,6 @@ export class BusinessNewsComponent implements OnInit {
       this.getNews(this.sources[2])
       this.getNews(this.sources[3])
       this.getNews(this.sources[4])
-      this.getNews(this.sources[5])
-      this.getNews(this.sources[6])
-
     }
 
   getNews(source) {
