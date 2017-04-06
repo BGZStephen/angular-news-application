@@ -1,25 +1,37 @@
+app-navbar {
+    width: 100%;
+  }
+
 .navbar-container {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .navbar {
-  width: 100%;
+  margin: 0 auto;
 }
 
 .navbar-list {
   display: flex;
+  flex-direction: row;
   list-style: none;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #ccc;
 }
 
 .navbar-item {
-  margin: 0 10px;
+  text-align: center;
+  width: 100%;
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
 .navbar-item > a {
   color: black;
   display: block;
-  font-size: 1.1em;
-  padding: 20px 20px;
+  padding: 10px 0px;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.2em;
