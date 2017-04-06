@@ -11,6 +11,7 @@ app-navbar {
 
 .navbar {
   margin: 0 auto;
+  width: 100%;
 }
 
 .navbar-list {
@@ -19,6 +20,7 @@ app-navbar {
   list-style: none;
   flex-wrap: wrap;
   border-bottom: 2px solid #ccc;
+  justify-content: center;
 }
 
 .navbar-item {
@@ -35,4 +37,23 @@ app-navbar {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.2em;
+}
+
+@media (min-width: 758px) {
+  .navbar-item {
+    text-align: left;
+    width: auto;
+    padding: 0px 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .navbar-list {
+    justify-content: flex-start;
+  }
+
+  .navbar-item {
+    padding: 20px 20px 10px;
+  }
 }
