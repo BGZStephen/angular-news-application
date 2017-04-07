@@ -14,15 +14,12 @@ export class SportNewsComponent implements OnInit {
 
   constructor(private newsSearchService: NewsSearchService) { }
 
-    ngOnInit() {
-
-      this.getNews(this.sources[0])
-      this.getNews(this.sources[1])
-      this.getNews(this.sources[2])
-      this.getNews(this.sources[3])
-      this.getNews(this.sources[4])
+  ngOnInit() {
+    for(let i = 0; i < this.sources.length; i++) {
+      this.getNews(this.sources[i])
     }
-
+  }
+  
   getNews(source) {
     this.newsSearchService.getNews(source) // loop through sources to generate http requests for each source to the api
     .subscribe(news => {

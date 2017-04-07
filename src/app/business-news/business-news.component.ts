@@ -15,12 +15,9 @@ export class BusinessNewsComponent implements OnInit {
   constructor(private newsSearchService: NewsSearchService) { }
 
     ngOnInit() {
-
-      this.getNews(this.sources[0])
-      this.getNews(this.sources[1])
-      this.getNews(this.sources[2])
-      this.getNews(this.sources[3])
-      this.getNews(this.sources[4])
+      for(let i = 0; i < this.sources.length; i++) {
+        this.getNews(this.sources[i])
+      }
     }
 
   getNews(source) {
