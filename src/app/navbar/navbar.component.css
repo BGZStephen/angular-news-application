@@ -30,7 +30,16 @@ app-navbar {
   margin-bottom: 10px;
 }
 
-.navbar-item > a {
+.navbar-logo {
+  text-align: center;
+  width: 100%;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.navbar-item > a,
+.navbar-logo > a {
   color: black;
   display: block;
   padding: 10px 0px;
@@ -39,8 +48,13 @@ app-navbar {
   letter-spacing: 0.2em;
 }
 
+.navbar-logo > a {
+  color: #369;
+}
+
 @media (min-width: 758px) {
-  .navbar-item {
+  .navbar-item,
+  .navbar-logo {
     text-align: left;
     width: auto;
     padding: 0px 20px;
@@ -54,7 +68,8 @@ app-navbar {
     padding: 0 0 0 30px;
   }
 
-  .navbar-item {
+  .navbar-item,
+  .navbar-logo {
     padding: 20px 20px 10px;
   }
 }
